@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script defer src="script.js"></script>
+</head>
+
+
+<!--Estilo da pagina-->
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    h1 {
+        background-color: rgb(230, 230, 230);
+    }
+
+    body {
+        background-image: url(/imgs/the-mentalist.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #tela-inicial {
+        text-align: center;
+    }
+
+    input {
+        margin: 5px;
+        padding: 5px;
+        border: solid black;
+    }
+
+    button {
+        margin: 5px;
+        padding: 5px;
+        border: solid black;
+
+    }
+
+    p {
+        font-size: 25px;
+        margin: 5px;
+    }
+    #aviso{
+        margin: auto;
+        width: 300px;
+    }
+
+    .acertou {
+        background-color: green;
+        color: aliceblue;
+        border-radius: 1rem;
+    }
+
+    .errou {
+        background-color: red;
+        color: aliceblue;
+        border-radius: 1rem;
+    }
+</style>
+
+
+<!--Corpo da pagina-->
+<body onload="gerarNumeroSecreto()">
+    <main id="tela-inicial">
+        <div id="titulo">
+            <h1>Advinhar número secreto</h1>
+        </div>
+        <p class="centro" id="dica">Digite um número entre 1 e 10</p>
+        <section class="conteudos">
+            <input type="number" name="inputNumero" id="inputNumero" class="input animar" min="1" max="10" step="1"
+                onblur="validarNumeroDigitado(this.value)" onclick="tocarMusicaDeFundo(); ativarBtnChutar()" />
+            <button id="btnChutar" class="botao" onclick="jogar()">Chutar</button>
+            <br>
+            <button id="btnSom" class="botao" onclick="ativarDesativarMusica()">Pausar/Despausar musica</button>
+            <div id="aviso"><p class='' id="aviso"></p></div>
+        </section>
+    </main>
+    <audio preLoad autoplay loop id="musicaDeFundo" src="assets/abertura-the-mentalist.mp3"></audio>
+
+</body>
+
+</html>
